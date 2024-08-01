@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package todo_service;
+
+import "google/protobuf/empty.proto";
+import "todo_service/message.proto";
+
+option go_package = "genproto/todo_service";
+
+service TodoService {
+  rpc CreateTodo (CreateTodoReq) returns (Todo);
+  rpc GetTodo (GetByIdReq) returns (Todo);
+  rpc GetTodos (GetTodoListReq) returns (GetTodoListResp);
+  rpc UpdateTodo (UpdateTodoReq) returns (Todo);
+  rpc DeleteTodo (DeleteTodoReq) returns (google.protobuf.Empty);
+}

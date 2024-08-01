@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package todo_service;
+
+option go_package = "genproto/todo_service";
+
+message Todo {
+  string id = 1;
+  string task = 2;
+  string created_at = 3;
+  string updated_at = 4;
+  bool is_completed = 5;
+  string user_id = 6;
+}
+
+message CreateTodoReq {
+  string task = 1;
+  string user_id = 2;
+}
+
+message GetByIdReq {
+  string id = 1;
+}
+
+message GetTodoListReq {
+  int32 limit = 1;
+  int32 offset = 2;
+}
+
+message GetTodoListResp {
+  repeated Todo todos = 1;
+  int32 count = 2;
+}
+
+message UpdateTodoReq {
+  string id = 1;
+  string task = 2;
+  string updated_at = 3;
+  bool is_completed = 4;
+  string user_id = 5;
+}
+
+message DeleteTodoReq {
+  string id = 1;
+}
